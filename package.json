@@ -1,9 +1,0 @@
-{
-  "name": "video_annotations",
-  "version": "1.0.0",
-  "dependencies": {
-    "@types/file-saver": "^2.0.1",
-    "file-saver": "latest",
-    "mime": "^2.4.4"
-  }
-}

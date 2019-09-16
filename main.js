@@ -1,4 +1,5 @@
-import FileSaver, { saveAs } from './node_modules/@types/file-saver'
+// import FileSaver, { saveAs } from './node_modules/@types/file-saver'
+let output = {};
 
 function main() {
     let start_time = 0.0;
@@ -6,6 +7,7 @@ function main() {
 
     const $actions = document.getElementById('actions');
     const $video = document.getElementsByTagName('video')[0];
+    // const $video = document.getElementsByTagName('video1');
 
     $video.addEventListener('keydown', e => {
         const current_time = $video.currentTime.toPrecision(2);
@@ -13,31 +15,33 @@ function main() {
             case "KeyS":
                 start_time = current_time;
                 $video.pause();
-                console.log('abc');
                 break;
             case "KeyE":
                 end_time = current_time;
                 $video.play();
-                console.log($actions.value + " " + start_time + " " + end_time);
+                // console.log($actions.value + " " + start_time + " " + end_time);
+                output[$actions.value] = [start_time, end_time];
                 $actions.selectedIndex++;
                 break;
             case "KeyN":
                 end_time = current_time;
                 $video.play();
-                console.log($actions.value + " not visible");
+                // console.log($actions.value + " not visible");
+                output[$actions.value] = ["not visible"];
                 $actions.selectedIndex++;
                 break;
             case "KeyC":
                 end_time = current_time;
                 $video.play();
-                console.log($actions.value + " needs context, could be visible");
+                // console.log($actions.value + " needs context, could be visible");
+                output[$actions.value] = ["could be"];
                 $actions.selectedIndex++;
                 break;
         }
     });
 
     $video.addEventListener('play', () => {
-        console.log("video playing...");
+        // console.log("video playing...");
         $video.focus();
     });
 
@@ -54,9 +58,20 @@ function main() {
 
     $actions.addEventListener('change', () => $video.play());
 
-    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-    FileSaver.saveAs(blob, "hello world.txt");
 
 }
+
+function saveDynamicDataToFile() {
+    var json = JSON.stringify(output);
+    var blob = new Blob([json], {type: "application/json"});
+    var url  = URL.createObjectURL(blob);
+
+    var a = document.createElement('a');
+    a.download    = "results.json";
+    a.href        = url;
+    a.textContent = "Download";
+    document.getElementById('content').appendChild(a);
+}
+
 
 window.addEventListener('DOMContentLoaded', () => main());

@@ -26,6 +26,7 @@
         <li>If the action is <i>not visible</i> press <b>n</b>.</li>
         <li>If the action <i>can be visible</i> press <b>c</b>.</li>
     </ul></p>
+        <p>After annotating, press <i>Click to Save</i> and <i>Download</i>. This will download a <i>results.json</i>.</p>
     </div>
 </div>
 
@@ -33,11 +34,14 @@
 <select id="actions" class="custom-select" size="10" autofocus>
 </select>
 
-<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls>
+<video controls
+       src="http://127.0.0.1:8887/1p0_1mini_1.mp4" width="640" height="360">
 </video>
-<br>
-<button type="button"  class="btn btn-info" onclick="saveDynamicDataToFile();">Click to Save</button>
+<!--<iframe id = "video1" src="https://drive.google.com/file/d/1dE22RLbTJT_YJ8ghzTEPKADlbBYaR0A0/preview" width="640" height="360"></iframe>-->
 
+<br>
+<div id="content"><button type="button"  class="btn btn-info" onclick="saveDynamicDataToFile();">Click to Save</button>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -48,8 +52,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<!--<script src="main.js"></script>-->
-<script type="module" src="main.js"></script>
+
+<script src="main.js"></script>
+
 
 
 </body>
