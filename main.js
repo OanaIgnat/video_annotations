@@ -1,24 +1,23 @@
 function main() {
-    let start_time = 0;
-    let end_time = 0;
+    let start_time = 0.0;
+    let end_time = 0.0;
+
     const $actions = document.getElementById('actions');
     const $video = document.getElementsByTagName('video')[0];
 
     $video.addEventListener('keydown', e => {
-        const current_time = $video.currentTime.toPrecision(1);
-
+        const current_time = $video.currentTime.toPrecision(2);
         switch (e.code) {
             case "KeyS":
                 start_time = current_time;
+                $video.pause();
+                console.log('abc');
                 break;
             case "KeyE":
                 end_time = current_time;
-                break;
-            case "ArrowUp":
-                console.log("ArrowUp" + current_time);
-                break;
-            case "ArrowDown":
-                console.log("ArrowDown" + current_time);
+                $video.play();
+                console.log($actions.value + " " + start_time + " " + end_time);
+                $actions.selectedIndex++;
                 break;
         }
     });
@@ -38,6 +37,8 @@ function main() {
                 $actions.appendChild($action);
             });
         });
+
+    $actions.addEventListener('change', () => $video.play());
 }
 
 window.addEventListener('DOMContentLoaded', () => main());
