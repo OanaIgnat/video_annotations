@@ -1,3 +1,5 @@
+import FileSaver, { saveAs } from './node_modules/@types/file-saver'
+
 function main() {
     let start_time = 0.0;
     let end_time = 0.0;
@@ -17,6 +19,18 @@ function main() {
                 end_time = current_time;
                 $video.play();
                 console.log($actions.value + " " + start_time + " " + end_time);
+                $actions.selectedIndex++;
+                break;
+            case "KeyN":
+                end_time = current_time;
+                $video.play();
+                console.log($actions.value + " not visible");
+                $actions.selectedIndex++;
+                break;
+            case "KeyC":
+                end_time = current_time;
+                $video.play();
+                console.log($actions.value + " needs context, could be visible");
                 $actions.selectedIndex++;
                 break;
         }
@@ -39,6 +53,10 @@ function main() {
         });
 
     $actions.addEventListener('change', () => $video.play());
+
+    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, "hello world.txt");
+
 }
 
 window.addEventListener('DOMContentLoaded', () => main());
