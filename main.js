@@ -45,20 +45,26 @@ function main() {
         $video.focus();
     });
 
-    fetch('actions.txt')
-        .then(response => response.text())
-        .then(actions_text => actions_text.trim().split(/\r?\n/))
-        .then(actions => {
-            actions.forEach(action => {
-                const $action = document.createElement('option');
-                $action.innerText = action;
-                $actions.appendChild($action);
-            });
+    // fetch('actions.txt')
+    //     .then(response => response.text())
+    //     .then(actions_text => actions_text.trim().split(/\r?\n/))
+    //     .then(actions => {
+    //         actions.forEach(action => {
+    //             const $action = document.createElement('option');
+    //             $action.innerText = action;
+    //             $actions.appendChild($action);
+    //         });
+    //     });
+
+    fetch('miniclip_actions.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(myJson) {
+            console.log(JSON.stringify(myJson));
         });
 
     $actions.addEventListener('change', () => $video.play());
-
-
 }
 
 function saveDynamicDataToFile() {
