@@ -1,4 +1,4 @@
-# local text&video annotations tool
+# Local Text&Video Annotation Tool
 
 ![alt text](data/GUI.png "Logo Title Text 1")
 
