@@ -1,5 +1,6 @@
 let output = {};
-
+var progress_bar = document.getElementById("myBar");
+var progress = 0;
 const miniclipFileNameToUrl = miniclip_filename => 'miniclips/' + miniclip_filename;
 
 function main() {
@@ -20,23 +21,33 @@ function main() {
             case "KeyE":
                 end_time = current_time;
                 $video.play();
-                output[$actions.value] = [start_time, end_time];
+                output[$actions.value + ", " + getSelectedOption($actions).innerText] = [start_time, end_time];
                 $actions.selectedIndex++;
+                progress_bar.style.width = progress + '%';
                 break;
             case "KeyN":
                 end_time = current_time;
                 $video.play();
-                output[$actions.value] = ["not visible"];
+                output[$actions.value + ", " + getSelectedOption($actions).innerText] = ["not visible"];
                 $actions.selectedIndex++;
+                progress_bar.style.width = progress + '%';
                 break;
             case "KeyC":
                 end_time = current_time;
                 $video.play();
-                output[$actions.value] = ["could be"];
+                output[$actions.value + ", " + getSelectedOption($actions).innerText] = ["could be"];
                 $actions.selectedIndex++;
+                progress_bar.style.width = progress + '%';
                 break;
+
         }
+
+        const nb_actions = $actions.innerText.trim().split(/\r?\n/).length;
+        progress =  Math.floor($actions.selectedIndex * 100 / nb_actions);
+        progress_bar.textContent = progress + '%';
+
     });
+
 
     $video.addEventListener('play', () => $video.focus());
 
