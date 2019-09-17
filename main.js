@@ -1,13 +1,14 @@
-// import FileSaver, { saveAs } from './node_modules/@types/file-saver'
 let output = {};
+
+const miniclipFileNameToUrl = miniclip_filename => 'miniclips/' + miniclip_filename;
 
 function main() {
     let start_time = 0.0;
     let end_time = 0.0;
+    let video_src = null;
 
     const $actions = document.getElementById('actions');
     const $video = document.getElementsByTagName('video')[0];
-    // const $video = document.getElementsByTagName('video1');
 
     $video.addEventListener('keydown', e => {
         const current_time = $video.currentTime.toPrecision(2);
@@ -19,65 +20,68 @@ function main() {
             case "KeyE":
                 end_time = current_time;
                 $video.play();
-                // console.log($actions.value + " " + start_time + " " + end_time);
                 output[$actions.value] = [start_time, end_time];
                 $actions.selectedIndex++;
                 break;
             case "KeyN":
                 end_time = current_time;
                 $video.play();
-                // console.log($actions.value + " not visible");
                 output[$actions.value] = ["not visible"];
                 $actions.selectedIndex++;
                 break;
             case "KeyC":
                 end_time = current_time;
                 $video.play();
-                // console.log($actions.value + " needs context, could be visible");
                 output[$actions.value] = ["could be"];
                 $actions.selectedIndex++;
                 break;
         }
     });
 
-    $video.addEventListener('play', () => {
-        // console.log("video playing...");
-        $video.focus();
-    });
-
-    // fetch('actions.txt')
-    //     .then(response => response.text())
-    //     .then(actions_text => actions_text.trim().split(/\r?\n/))
-    //     .then(actions => {
-    //         actions.forEach(action => {
-    //             const $action = document.createElement('option');
-    //             $action.innerText = action;
-    //             $actions.appendChild($action);
-    //         });
-    //     });
+    $video.addEventListener('play', () => $video.focus());
 
     fetch('miniclip_actions.json')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(myJson) {
-            console.log(JSON.stringify(myJson));
+        .then(response => response.json())
+        .then(miniclips => {
+            miniclips.forEach(miniclip_actions => {
+                $video.src = miniclipFileNameToUrl(miniclip_actions.miniclip);
+                miniclip_actions.actions.forEach(action => {
+                    const $action = document.createElement('option');
+                    $action.innerText = action;
+                    $action.value = miniclip_actions.miniclip;
+                    $actions.appendChild($action);
+                });
+            });
         });
+    $actions.addEventListener('change', () => {
+        let new_video_src = miniclipFileNameToUrl(getSelectedOption($actions).value);
+        if (video_src !== new_video_src) {  // Only set the source if it changes, to avoid reloading the same video.
+            video_src = new_video_src;   // We save it to compare with the value assigned, not the post-processed URL.
+            $video.src = new_video_src;
+            $video.play();
+        }
+    });
+}
 
-    $actions.addEventListener('change', () => $video.play());
+function getSelectedOption($select) {
+    for (let i = 0; i < $select.options.length; i++) {
+        if ($select.options[i].selected) {
+            return $select.options[i];
+        }
+    }
+    return null;
 }
 
 function saveDynamicDataToFile() {
-    var json = JSON.stringify(output);
-    var blob = new Blob([json], {type: "application/json"});
-    var url  = URL.createObjectURL(blob);
+    const json = JSON.stringify(output);
+    const blob = new Blob([json], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
 
-    var a = document.createElement('a');
-    a.download    = "results.json";
-    a.href        = url;
+    const a = document.createElement('a');
+    a.download = "results.json";
+    a.href = url;
     a.textContent = "Download";
     document.getElementById('content').appendChild(a);
 }
-
 
 window.addEventListener('DOMContentLoaded', () => main());

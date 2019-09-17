@@ -1,1 +1,34 @@
-{"1p0_1mini_1.mp4": ["clean up after dinner", "go to bed", "goes down before we all", "share with guys what my typical routine looks like every day", "clean up right after", "making dinner at around five o'clock", "get that all", "leaving a big mess for the next morning", "share my night", "jump right in", "end up"], "8p1_3mini_10.mp4": ["make this omelet for an easy lunch or dinner", "spread out over half of the omelette", "serve it with an avocado for some healthy fat the eggs", "got my two mono mushroom mix that i", "use baby spinach instead of arugula if you", "sprinkled a little bit of sea salt", "make these three breakfast recipes", "goes perfectly with this motor", "add some healthy greens the flavor of the arguer", "fold on it over", "finishes the meal off really nicely"]}
+[
+  {
+    "miniclip": "1p0_1mini_1.mp4",
+    "actions": [
+      "clean up after dinner",
+      "go to bed",
+      "goes down before we all",
+      "share with guys what my typical routine looks like every day",
+      "clean up right after",
+      "making dinner at around five o'clock",
+      "get that all",
+      "leaving a big mess for the next morning",
+      "share my night",
+      "jump right in",
+      "end up"
+    ]
+  },
+  {
+    "miniclip": "1p0_1mini_2.mp4",
+    "actions": [
+      "make this omelet for an easy lunch or dinner",
+      "spread out over half of the omelette",
+      "serve it with an avocado for some healthy fat the eggs",
+      "got my two mono mushroom mix that i",
+      "use baby spinach instead of arugula if you",
+      "sprinkled a little bit of sea salt",
+      "make these three breakfast recipes",
+      "goes perfectly with this motor",
+      "add some healthy greens the flavor of the arguer",
+      "fold on it over",
+      "finishes the meal off really nicely"
+    ]
+  }
+]

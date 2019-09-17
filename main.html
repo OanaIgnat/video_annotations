@@ -10,36 +10,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css"/>
-
 </head>
 
 <body>
 
-<h1>Video annotation</h1>
+<div id="content">
+    <h1>Video annotation</h1>
 
-<div class="card bg-light mb-3" style="max-width: 45rem;">
-    <div class="card-header">Instructions</div>
-    <div class="card-body">
-        <h5 class="card-title">Localize each action in the video by getting its start and end time</h5>
-        <p class="card-text"><ul>
-        <li>For each action, locate its clip in the video by pressing <b>s</b> for <i>start time</i> and <b>e</b> for <i>end time</i>.</li>
-        <li>If the action is <i>not visible</i> press <b>n</b>.</li>
-        <li>If the action <i>can be visible</i> press <b>c</b>.</li>
-    </ul></p>
-        <p>After annotating, press <i>Click to Save</i> and <i>Download</i>. This will download a <i>results.json</i>.</p>
-    </div>
-</div>
+    <details>
+        <summary>Instructions</summary>
+        <div class="card-body">
+            <h5 class="card-title">Localize each action in the video by getting its start and end
+                time</h5>
+            <ol>
+                <li>
+                    For each action, locate its clip in the video by pressing <kbd>S</kbd> for <b>start time</b> and
+                    <kbd>E</kbd> for <b>end time</b>.
+                </li>
+                <ul>
+                    <li>If the action is <b>not visible</b> press <kbd>N</kbd>.</li>
+                    <li>If the action <b>can be visible</b> press <kbd>C</kbd>.</li>
+                </ul>
+                <li>
+                    After annotating, press <b>Create download link</b> and <b>Download</b>. This will download a
+                    <i>results.json</i>.
+                </li>
+            </ol>
+        </div>
+    </details>
 
-<label for="actions">Actions:</label>
-<select id="actions" class="custom-select" size="10" autofocus>
-</select>
+    <label for="actions">Actions:</label>
+    <select id="actions" class="custom-select" size="10" autofocus>
+    </select>
 
-<video controls
-       src="http://127.0.0.1:8887/1p0_1mini_1.mp4" width="640" height="360">
-</video>
+    <video controls height="360">
+    </video>
 
-<br>
-<div id="content"><button type="button"  class="btn btn-info" onclick="saveDynamicDataToFile();">Click to Save</button>
+    <br>
+    <button type="button" class="btn btn-info" onclick="saveDynamicDataToFile();">Create download link</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -53,8 +61,6 @@
         crossorigin="anonymous"></script>
 
 <script src="main.js"></script>
-
-
 
 </body>
 </html>
