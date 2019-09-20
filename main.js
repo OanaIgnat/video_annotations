@@ -2,6 +2,7 @@ let output = {};
 var progress_bar = document.getElementById("myBar");
 var progress = 0;
 const miniclipFileNameToUrl = miniclip_filename => 'miniclips/' + miniclip_filename;
+const channel_playlist = "2p0";
 
 function main() {
     let start_time = 0.0;
@@ -43,15 +44,14 @@ function main() {
         }
 
         const nb_actions = $actions.innerText.trim().split(/\r?\n/).length;
-        progress =  Math.floor($actions.selectedIndex * 100 / nb_actions);
+        progress = Math.floor($actions.selectedIndex * 100 / nb_actions);
         progress_bar.textContent = progress + '%';
 
     });
 
 
     $video.addEventListener('play', () => $video.focus());
-
-    fetch('miniclip_actions.json')
+    fetch('miniclip_jsons/miniclip_actions_' + channel_playlist + '.json')
         .then(response => response.json())
         .then(miniclips => {
             miniclips.forEach(miniclip_actions => {
@@ -89,7 +89,7 @@ function saveDynamicDataToFile() {
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement('a');
-    a.download = "results.json";
+    a.download = "results" + channel_playlist + ".json";
     a.href = url;
     a.textContent = "Download";
     document.getElementById('content').appendChild(a);
