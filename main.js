@@ -24,6 +24,7 @@ function main() {
                 $video.play();
                 output[$actions.value + ", " + getSelectedOption($actions).innerText] = [start_time, end_time];
                 $actions.selectedIndex++;
+                load_video();
                 progress_bar.style.width = progress + '%';
                 break;
             case "KeyN":
@@ -31,6 +32,7 @@ function main() {
                 $video.play();
                 output[$actions.value + ", " + getSelectedOption($actions).innerText] = ["not visible"];
                 $actions.selectedIndex++;
+                load_video();
                 progress_bar.style.width = progress + '%';
                 break;
             case "KeyC":
@@ -38,6 +40,7 @@ function main() {
                 $video.play();
                 output[$actions.value + ", " + getSelectedOption($actions).innerText] = ["could be"];
                 $actions.selectedIndex++;
+                load_video();
                 progress_bar.style.width = progress + '%';
                 break;
 
@@ -64,15 +67,20 @@ function main() {
                 });
             });
         });
-    $actions.addEventListener('change', () => {
+
+    $actions.addEventListener('change', load_video);
+
+    function load_video() {
         let new_video_src = miniclipFileNameToUrl(getSelectedOption($actions).value);
         if (video_src !== new_video_src) {  // Only set the source if it changes, to avoid reloading the same video.
             video_src = new_video_src;   // We save it to compare with the value assigned, not the post-processed URL.
             $video.src = new_video_src;
             $video.play();
         }
-    });
+    }
 }
+
+
 
 function getSelectedOption($select) {
     for (let i = 0; i < $select.options.length; i++) {
