@@ -2,7 +2,7 @@ let output = {};
 var progress_bar = document.getElementById("myBar");
 var progress = 0;
 const miniclipFileNameToUrl = miniclip_filename => 'miniclips/' + miniclip_filename;
-const channel_playlist = "3p1";
+const channel_playlist = "2p1";
 
 function main() {
     let start_time = 0.0;
