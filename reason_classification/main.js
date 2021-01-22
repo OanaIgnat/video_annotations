@@ -1,3 +1,4 @@
+let loadedData;
 var output = [];
 const miniclipFileNameToUrl = miniclip_filename => '../data/reason/miniclips/' + miniclip_filename;
 
@@ -47,13 +48,14 @@ function main() {
         //         console.log(key, value);
         //     });
         .then(data => {
+            loadedData = data;
             // var mydata = JSON.parse(data)
             // var actions = Object.keys(data);
             for (var action in data) {
                 const $var = document.createElement('option');
 
                 $var.innerText = action;
-                $var.value = data[action];
+                $var.value = action;
                 $actions.appendChild($var);
                 console.log(action +': '+ data[action]);
                 console.log(action +': '+ data[action].reasons);
@@ -85,7 +87,10 @@ function main() {
     $text_reasons.addEventListener('change', save_reasons2);
 
     function show_sentences_reasons(){
-        reasons = getSelectedOption($actions).value;
+        const action = getSelectedOption($actions);
+        console.log(action.value);
+        // reasons = .value;
+        const reasons = loadedData[action.value].reasons
         console.log(reasons);
         // var array = JSON.parse("[" + reasons + "]");
 
