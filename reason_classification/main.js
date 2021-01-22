@@ -13,104 +13,54 @@ function main() {
 
 
     $video.addEventListener('play', () => $video.focus());
-    // fetch('../data/reason/input.json')
-    //     .then(response => response.json())
-    //     .then(miniclips => {
-    //         miniclips.forEach(data => {
-    //             $video.src = miniclipFileNameToUrl(data.miniclip);
-    //             data.sentences.forEach(elem => {
-    //                 const $var = document.createElement('option');
-    //                 $var.innerText = elem;
-    //                 $var.value = data.miniclip;
-    //                 $sentences.appendChild($var);
-    //             });
-    //
-    //             data.reasons.forEach(elem => {
-    //                 const $var = document.createElement('option');
-    //                 $var.innerText = elem;
-    //                 $var.value = data.miniclip;
-    //                 $reasons.appendChild($var);
-    //             });
-    //
-    //             data.actions.forEach(elem => {
-    //                 const $var = document.createElement('option');
-    //                 $var.innerText = elem;
-    //                 $var.value = data.miniclip;
-    //                 $actions.appendChild($var);
-    //             });
-    //         });
-    //     });
 
     fetch('../data/reason/input2.json')
         .then(response => response.json())
-        // .then(data => {
-        //     data.entries.forEach(([key, value]) => {
-        //         console.log(key, value);
-        //     });
         .then(data => {
             loadedData = data;
-            // var mydata = JSON.parse(data)
-            // var actions = Object.keys(data);
             for (var action in data) {
                 const $var = document.createElement('option');
-
                 $var.innerText = action;
                 $var.value = action;
                 $actions.appendChild($var);
-                console.log(action +': '+ data[action]);
-                console.log(action +': '+ data[action].reasons);
-
-                // if (data.hasOwnProperty(action)) { // this will check if key is owned by data object and not by any of it's ancestors
-                //     sentences = data[action].sentences;
-                //     reasons = data[action].reasons;
-                //
-                //     console.log(action +': '+ reasons);
-                //     // // console.log(action +': '+ sentences);
-                //     // sentences.forEach(elem => {
-                //     //
-                //     //     console.log(action +': '+ elem.sentence + " ; " + elem.miniclip);
-                //     // });
-                // }
             }
-            // actions.forEach(elem => {
-            //     const $var = document.createElement('option');
-            //     $var.innerText = elem;
-            //     $var.value = data.elem;
-            //     $actions.appendChild($var);
-            // });
-
         });
 
     $actions.addEventListener('change', show_sentences_reasons);
     $sentences.addEventListener('change', load_video);
     $reasons.addEventListener('change', save_reasons);
-    $text_reasons.addEventListener('change', save_reasons2);
+    $text_reasons.addEventListener('change', save_reasons_txt);
 
     function show_sentences_reasons(){
         const action = getSelectedOption($actions);
-        console.log(action.value);
-        // reasons = .value;
+        // console.log(action.value);
         const reasons = loadedData[action.value].reasons
-        console.log(reasons);
-        // var array = JSON.parse("[" + reasons + "]");
-
-        // console.log(array);
-        // for (var reason in array) {
-        //     console.log(reason);
-        //     const $var = document.createElement('option');
-        //     $var.innerText = reason;
-        //     // $var.value = data.miniclip;
-        //     $reasons.appendChild($var);
-        // }
-        // sentences = reasons_sentences.sentences;
-        // reasons = reasons_sentences.reasons;
+        const sentences = loadedData[action.value].sentences
         // console.log(reasons);
+        // console.log(sentences);
+
+        $sentences.innerHTML = "";
+        sentences.forEach(elem => {
+            const $var = document.createElement('option');
+            $var.innerText = elem.sentence;
+            $var.value = elem.miniclip;
+            $sentences.appendChild($var);
+        });
+
+        $reasons.innerHTML = "";
+        reasons.forEach(elem => {
+            const $var = document.createElement('option');
+            $var.innerText = elem;
+            $var.value = elem;
+            $reasons.appendChild($var);
+        });
+
     }
 
     function save_reasons() {
-
+        const action = getSelectedOption($actions);
         let new_reason = getSelectedOption($reasons).innerText;
-        let key = $sentences.value + ", " + getSelectedOption($sentences).innerText;
+        let key = action.value + ", " + $sentences.value + ", " + getSelectedOption($sentences).innerText;
         output.push({
             key:   key,
             value: new_reason
@@ -119,10 +69,10 @@ function main() {
 
     }
 
-    function save_reasons2() {
-
+    function save_reasons_txt() {
+        const action = getSelectedOption($actions);
         let new_reason = "new: " + $text_reasons.value;
-        let key = $sentences.value + ", " + getSelectedOption($sentences).innerText;
+        let key = action.value + ", " +$sentences.value + ", " + getSelectedOption($sentences).innerText;
         output.push({
             key:   key,
             value: new_reason
@@ -140,7 +90,6 @@ function main() {
         }
     }
 }
-
 
 
 function getSelectedOption($select) {
