@@ -1,0 +1,22 @@
+[
+  {
+    "actions": ["drink"],
+    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
+    "sentences": ["for me turning off technology thirty minutes before bed and reading a book and drinking my tea is the best way to get sleepy"],
+    "reasons": ["a", "b", "c", "d"]
+  },
+
+  {
+    "actions": ["eat"],
+    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
+    "sentences": ["tea is the best way to get sleepy"],
+    "reasons": ["a1", "b1", "c1", "d1"]
+  },
+
+  {
+    "actions": ["drink"],
+    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
+    "sentences": ["for me turning off"],
+    "reasons": ["a", "b", "c", "d"]
+  }
+]

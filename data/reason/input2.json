@@ -1,0 +1,28 @@
+{
+  "read": {
+    "sentences": [
+      {
+        "sentence": "s1",
+        "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4"
+      },
+      {
+        "sentence": "s2",
+        "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4"
+      }
+    ],
+    "reasons": ["a", "b", "c", "d"]
+  },
+  "drink": {
+    "sentences": [
+      {
+        "sentence": "s3",
+        "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4"
+      },
+      {
+        "sentence": "s4",
+        "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4"
+      }
+    ],
+    "reasons": ["a1", "b1", "c1", "d1"]
+  }
+}
