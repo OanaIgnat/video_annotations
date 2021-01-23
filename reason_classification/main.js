@@ -2,6 +2,7 @@ let loadedData;
 var output = [];
 const miniclipFileNameToUrl = miniclip_filename => '../data/reason/miniclips/' + miniclip_filename;
 
+
 function main() {
     let video_src = null;
 
@@ -11,10 +12,9 @@ function main() {
     const $actions = document.getElementById('action');
     const $text_reasons = document.getElementById("searchTxt");
 
-
     $video.addEventListener('play', () => $video.focus());
 
-    fetch('../data/reason/input2.json')
+    fetch('../data/reason/input.json')
         .then(response => response.json())
         .then(data => {
             loadedData = data;

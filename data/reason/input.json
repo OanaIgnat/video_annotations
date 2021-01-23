@@ -1,22 +1,129 @@
-[
-  {
-    "actions": ["drink"],
-    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
-    "sentences": ["for me turning off technology thirty minutes before bed and reading a book and drinking my tea is the best way to get sleepy"],
-    "reasons": ["a", "b", "c", "d"]
-  },
-
-  {
-    "actions": ["eat"],
-    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
-    "sentences": ["tea is the best way to get sleepy"],
-    "reasons": ["a1", "b1", "c1", "d1"]
-  },
-
-  {
-    "actions": ["drink"],
-    "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4",
-    "sentences": ["for me turning off"],
-    "reasons": ["a", "b", "c", "d"]
-  }
-]
+{"clean": {
+  "reasons": [
+    "dirty",
+    "company_was_coming",
+    "messy",
+    "remove_dirt",
+    "improve_living_conditions",
+    "like_to_see_shine",
+    "things_cleaner",
+    "don't_like_dirtiness",
+    "have_clean_house",
+    "remove_dort",
+    "there_dust",
+    "dirtiness_unpleasant",
+    "dirt_can_make_ill"
+  ],
+  "sentences": [
+    {
+      "sentence": "we were looking at the globe a lot with oliver so i am cleaning up the fireplace mantle and i am going to slowly start to bring in my fall decor",
+      "miniclip": "gsplEHYXHRo_0:03:31_0:03:35.mp4"
+    },
+    {
+      "sentence": "i am on the phone with my mother in law so always getting a little chit chatting in while i am cleaning the house but i have to do a several passes on these windows because they get super super dirty and it is very streaky",
+      "miniclip": "gsplEHYXHRo_0:09:45_0:09:52.mp4"
+    },
+    {
+      "sentence": "I noticed that people open the windows more in the summer months especially in the morning when the weather is nice and cool and also in the evenings so that is why am cleaning out we live on a ranch surrounded by ranches as well lots of horses kicking up dust that end up in my windows flies end up in my windows kind of gross",
+      "miniclip": "IZj2IC2iUCE_0:01:34_0:01:45.mp4"
+    },
+    {
+      "sentence": "so that is why am vacuuming everything up getting it nice and clean and then I am cleaning up the windows screens and the glass on the windows as well to make sure it is enticing to open the windows so that is why usually close the windows in the middle of the day but",
+      "miniclip": "IZj2IC2iUCE_0:01:47_0:01:57.mp4"
+    },
+    {
+      "sentence": "we have breakfast either byron or myself does chores and the kids are usually cleaning up after their breakfast we are trying to instill basic skills and respect for each other in this home you know cleaning up after ourselves that type of thing obviously when we are all home all day long it is you know portant to be responsible to all care about each other and support each other and so that is",
+      "miniclip": "CGD3cTu_PrQ_0:04:51_0:05:12.mp4"
+    }
+  ]
+}, "drink": {
+  "reasons": [
+    "quench_thirst",
+    "were_thirsty",
+    "thirsty",
+    "drink_tasted_good",
+    "was_thirsty",
+    "thristy",
+    "wet_tongue",
+    "not_to_thirsty",
+    "get_drunk",
+    "vomit",
+    "refreshment",
+    "relaxed",
+    "thirst",
+    "have_parched_mouth",
+    "refreshing",
+    "parched",
+    "celebrating",
+    "avoid_becoming_dehydrated",
+    "satisfy_thirst",
+    "would_want_to_forget"
+  ],
+  "sentences": [
+    {
+      "sentence": "and then there is like a silly lip catch with these um and I am drinking my wine I am having a good te by this point",
+      "miniclip": "xGrH1SEzPPE_0:02:37_0:02:45.mp4"
+    },
+    {
+      "sentence": "and I am going to take it outside and also enjoy it outside when you are eating a lot of roughage like this though you have to make sure you stay hydrated and especially in the summer you want to stay hydrated and I always feel so much better if I am drinking tons and tons of water but regular water by itself is kind of boring",
+      "miniclip": "-AzBDUeKA8A_0:04:22_0:04:33.mp4"
+    },
+    {
+      "sentence": "and then I make some tea for myself right now I am drinking the your tea tea toxifying tea which I actually love the flavor I have not noticed too much of a difference which I am not looking for anything in particular right now from a tea but I do like the flavor",
+      "miniclip": "TlHYvAMImck_0:00:25_0:00:42.mp4"
+    },
+    {
+      "sentence": "so that is why love to do that as well and then for me turning off technology thirty minutes before bed and reading a book and drinking my tea is the best way to get sleepy so hopefully this video gives you some tips",
+      "miniclip": "nFJqbmEVEws_0:04:32_0:04:43.mp4"
+    }
+  ]
+}, "read": {
+  "reasons": [
+    "learn",
+    "bored",
+    "improove_know_how",
+    "entertained",
+    "makes_wiser",
+    "wanted_to_gain_information",
+    "expand_knowledge",
+    "appreciate_great_works_of_fiction",
+    "appear_cultured_to_opposite_sex",
+    "lawyer_told_to",
+    "like_chekov",
+    "get_information"
+  ],
+  "sentences": [
+    {
+      "sentence": "and then i also love to read a good book outside right now i am reading the woman in the window which i started in this book called hope rising which is a beautiful book about a ranch that rehabilitates horses and uses those horses to work with children there are some beautiful stories it is definitely a tear jerker and another favorite of mine in the summer",
+      "miniclip": "o3NuPI6CG6I_0:02:55_0:03:09.mp4"
+    },
+    {
+      "sentence": "I have not always been consistent with reading my Bible everyday and even now you know it is a struggle to wake up early and get this te in this year I made the commitment to read through the Bible so that is why am reading through the old and new Testament sultaneously I got these great highlighters from Amazon and there was so much that resonated and applied to me personally into my own life",
+      "miniclip": "WodLl6t8H5o_0:02:13_0:02:19.mp4"
+    },
+    {
+      "sentence": "I read a good old fashioned book right now I am reading this Dolly Parton biography that a family member gave me for Christmas so that is why have an hour before I have to leave",
+      "miniclip": "CuUsFUoZJCs_0:08:05_0:08:12.mp4"
+    },
+    {
+      "sentence": "I am going come out and make sure the fireplace is dead and everything is turned off once the boys are all cleaned up teeth brushed and they are getting in their jammies and all that we sit down and usually read a book to them so tonight I am reading them there was an old lady who swallowed a bat I usually like to read fall themed books around this te of the year goes to catch the cats so at about 8 o clock once we ve finished with the bedte routine that is usually when I can chill or when Byron and I can chill or when we can kind of do whatever we want and sometes",
+      "miniclip": "8UoAlOLmvtk_0:06:24_0:06:30.mp4"
+    },
+    {
+      "sentence": "so that is why bought a few dinosaurs from Michaels and I am reading this one to make it a toothbrush holder Michaels carries a set of about 4 to 5 dinosaurs so my son was very excited because he got to keep the dinosaurs that I was not using for the toothbrush holder",
+      "miniclip": "ed93-q7sfaw_0:00:48_0:00:54.mp4"
+    },
+    {
+      "sentence": "enjoy this iced tea and since I am avoiding technology I am reading instead so that is why am catching up on a bunch of things I ve been wanting to read throughout the day",
+      "miniclip": "-AzBDUeKA8A_0:06:10_0:06:16.mp4"
+    },
+    {
+      "sentence": "this is the ipad mini which was a gift from byron and i have all my books i am reading lots of books right now and my calendar and everything so it is essential",
+      "miniclip": "sbUGABAfVDk_0:01:12_0:01:22.mp4"
+    },
+    {
+      "sentence": "so it is easier for me to read I can read with one hand and and to kind of give you an example I ve been through like I think I am on my fourth book for the year I like to read I am reading this book right now called captivating that Nikki told me about and it is basically about femininity",
+      "miniclip": "abDoezK23MU_0:11:00_0:11:12.mp4"
+    }
+  ]
+}}
