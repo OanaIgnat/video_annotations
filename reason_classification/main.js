@@ -14,7 +14,7 @@ function main() {
 
     $video.addEventListener('play', () => $video.focus());
 
-    fetch('../data/reason/input_hanwen.json')
+    fetch('../data/reason/input_oana.json')
         .then(response => response.json())
         .then(data => {
             loadedData = data;
